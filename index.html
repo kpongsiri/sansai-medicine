@@ -3,778 +3,737 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>MedWise — ความรู้สู้โรค</title>
-<link href="https://fonts.googleapis.com/css2?family=Sarabun:wght@300;400;500;600;700&family=Noto+Serif+Thai:wght@400;700&display=swap" rel="stylesheet">
+<title>ความรู้สุขภาพ — อายุรกรรม โรงพยาบาลสันทราย</title>
+<link href="https://fonts.googleapis.com/css2?family=Sarabun:wght@400;500;600;700&family=Noto+Serif+Thai:wght@400;600&display=swap" rel="stylesheet">
 <style>
   :root {
-    --teal: #0b7b6b;
-    --teal-light: #12a98f;
-    --teal-pale: #e6f5f2;
-    --navy: #0d2b3e;
-    --gold: #c8973a;
-    --cream: #faf8f4;
-    --white: #ffffff;
-    --gray: #6b7280;
-    --gray-light: #f3f4f6;
-    --red-soft: #fef2f2;
-    --red: #dc2626;
+    --blue-50: #E6F1FB;
+    --blue-100: #B5D4F4;
+    --blue-200: #85B7EB;
+    --blue-400: #378ADD;
+    --blue-600: #185FA5;
+    --blue-800: #0C447C;
+    --blue-900: #042C53;
+    --teal-50: #E1F5EE;
+    --teal-400: #1D9E75;
+    --teal-600: #0F6E56;
+    --gray-50: #F1EFE8;
+    --gray-100: #D3D1C7;
+    --gray-400: #888780;
+    --gray-600: #5F5E5A;
+    --amber-50: #FAEEDA;
+    --amber-400: #BA7517;
+    --amber-600: #854F0B;
+    --red-50: #FCEBEB;
+    --red-400: #E24B4A;
+    --red-600: #A32D2D;
+    --green-50: #EAF3DE;
+    --green-400: #639922;
+    --green-600: #3B6D11;
   }
-
-  * { margin: 0; padding: 0; box-sizing: border-box; }
-
-  html { scroll-behavior: smooth; }
-
+  * { box-sizing: border-box; margin: 0; padding: 0; }
   body {
     font-family: 'Sarabun', sans-serif;
-    background: var(--cream);
-    color: var(--navy);
-    line-height: 1.7;
+    background: #F7F9FC;
+    color: #1a1a2e;
+    font-size: 18px;
+    line-height: 1.8;
   }
 
-  /* NAV */
-  nav {
-    position: fixed; top: 0; width: 100%; z-index: 100;
-    background: rgba(255,255,255,0.95);
-    backdrop-filter: blur(12px);
-    border-bottom: 1px solid rgba(11,123,107,0.12);
-    padding: 0 2rem;
-    display: flex; align-items: center; justify-content: space-between;
-    height: 64px;
+  /* HEADER */
+  header {
+    background: var(--blue-900);
+    color: white;
+    padding: 0;
+    position: sticky;
+    top: 0;
+    z-index: 100;
+    box-shadow: 0 2px 12px rgba(4,44,83,0.18);
   }
-  .nav-logo {
-    display: flex; align-items: center; gap: 10px;
-    font-family: 'Noto Serif Thai', serif;
-    font-size: 1.35rem; font-weight: 700;
-    color: var(--teal); text-decoration: none;
+  .header-inner {
+    max-width: 960px;
+    margin: auto;
+    padding: 16px 24px;
+    display: flex;
+    align-items: center;
+    gap: 16px;
   }
-  .nav-logo span { color: var(--gold); }
-  .nav-links { display: flex; gap: 2rem; list-style: none; }
-  .nav-links a {
-    text-decoration: none; color: var(--navy);
-    font-size: 0.95rem; font-weight: 500;
-    transition: color 0.2s;
+  .logo-circle {
+    width: 48px; height: 48px;
+    background: white;
+    border-radius: 50%;
+    display: flex; align-items: center; justify-content: center;
+    flex-shrink: 0;
   }
-  .nav-links a:hover { color: var(--teal); }
-  .nav-cta {
-    background: var(--teal); color: white;
-    padding: 0.5rem 1.2rem; border-radius: 8px;
-    text-decoration: none; font-weight: 600;
-    font-size: 0.9rem; transition: background 0.2s;
+  .logo-circle svg { width: 28px; height: 28px; }
+  .header-text h1 {
+    font-size: 18px;
+    font-weight: 700;
+    line-height: 1.3;
+    color: white;
   }
-  .nav-cta:hover { background: var(--teal-light); }
+  .header-text p {
+    font-size: 13px;
+    color: var(--blue-200);
+    line-height: 1.3;
+  }
 
   /* HERO */
   .hero {
-    min-height: 100vh;
-    background: linear-gradient(135deg, var(--navy) 0%, #1a4a6e 50%, var(--teal) 100%);
-    display: flex; align-items: center; justify-content: center;
-    text-align: center; padding: 6rem 2rem 4rem;
-    position: relative; overflow: hidden;
+    background: linear-gradient(160deg, var(--blue-800) 0%, var(--blue-600) 60%, var(--teal-600) 100%);
+    color: white;
+    padding: 56px 24px 48px;
+    text-align: center;
   }
-  .hero::before {
-    content: '';
-    position: absolute; inset: 0;
-    background: url("data:image/svg+xml,%3Csvg width='60' height='60' viewBox='0 0 60 60' xmlns='http://www.w3.org/2000/svg'%3E%3Cg fill='none' fill-rule='evenodd'%3E%3Cg fill='%23ffffff' fill-opacity='0.03'%3E%3Cpath d='M36 34v-4h-2v4h-4v2h4v4h2v-4h4v-2h-4zm0-30V0h-2v4h-4v2h4v4h2V6h4V4h-4zM6 34v-4H4v4H0v2h4v4h2v-4h4v-2H6zM6 4V0H4v4H0v2h4v4h2V6h4V4H6z'/%3E%3C/g%3E%3C/g%3E%3C/svg%3E");
-  }
-  .hero-badge {
-    display: inline-block;
-    background: rgba(200,151,58,0.2); border: 1px solid var(--gold);
-    color: var(--gold); font-size: 0.85rem; font-weight: 600;
-    padding: 0.35rem 1rem; border-radius: 999px; margin-bottom: 1.5rem;
-    letter-spacing: 0.05em;
-  }
-  .hero h1 {
+  .hero h2 {
     font-family: 'Noto Serif Thai', serif;
-    font-size: clamp(2rem, 5vw, 3.5rem);
-    color: white; line-height: 1.3; margin-bottom: 1.2rem;
+    font-size: 32px;
+    font-weight: 600;
+    margin-bottom: 12px;
+    line-height: 1.4;
   }
-  .hero h1 em { color: var(--gold); font-style: normal; }
   .hero p {
-    color: rgba(255,255,255,0.8); font-size: 1.1rem;
-    max-width: 560px; margin: 0 auto 2.5rem;
+    font-size: 17px;
+    color: var(--blue-100);
+    max-width: 560px;
+    margin: auto;
   }
-  .hero-btns { display: flex; gap: 1rem; justify-content: center; flex-wrap: wrap; }
-  .btn-primary {
-    background: var(--gold); color: var(--navy);
-    padding: 0.8rem 2rem; border-radius: 10px;
-    font-weight: 700; font-size: 1rem; text-decoration: none;
-    transition: transform 0.2s, box-shadow 0.2s;
-    box-shadow: 0 4px 20px rgba(200,151,58,0.4);
-  }
-  .btn-primary:hover { transform: translateY(-2px); box-shadow: 0 8px 28px rgba(200,151,58,0.5); }
-  .btn-outline {
-    border: 2px solid rgba(255,255,255,0.5); color: white;
-    padding: 0.8rem 2rem; border-radius: 10px;
-    font-weight: 600; font-size: 1rem; text-decoration: none;
-    transition: border-color 0.2s, background 0.2s;
-  }
-  .btn-outline:hover { border-color: white; background: rgba(255,255,255,0.1); }
 
-  .hero-stats {
-    display: flex; gap: 3rem; justify-content: center; flex-wrap: wrap;
-    margin-top: 4rem; padding-top: 3rem;
-    border-top: 1px solid rgba(255,255,255,0.15);
-  }
-  .stat { text-align: center; color: white; }
-  .stat-num { font-size: 2rem; font-weight: 700; color: var(--gold); }
-  .stat-label { font-size: 0.9rem; opacity: 0.7; }
+  /* MAIN */
+  main { max-width: 960px; margin: auto; padding: 40px 20px 60px; }
 
-  /* SECTION STYLES */
-  section { padding: 5rem 2rem; }
-  .container { max-width: 1100px; margin: 0 auto; }
-  .section-tag {
-    display: inline-block;
-    color: var(--teal); font-size: 0.85rem; font-weight: 700;
-    letter-spacing: 0.1em; text-transform: uppercase;
-    margin-bottom: 0.75rem;
-  }
+  /* SECTION TITLE */
   .section-title {
-    font-family: 'Noto Serif Thai', serif;
-    font-size: clamp(1.6rem, 3vw, 2.4rem);
-    color: var(--navy); margin-bottom: 1rem;
+    font-size: 22px;
+    font-weight: 700;
+    color: var(--blue-900);
+    margin-bottom: 20px;
+    padding-bottom: 10px;
+    border-bottom: 2px solid var(--blue-400);
   }
-  .section-desc { color: var(--gray); font-size: 1.05rem; max-width: 600px; }
 
-  /* DISEASE CATEGORIES */
-  .categories { background: white; }
-  .cat-grid {
+  /* DISEASE CARDS GRID */
+  .disease-grid {
     display: grid;
-    grid-template-columns: repeat(auto-fill, minmax(280px, 1fr));
-    gap: 1.5rem; margin-top: 3rem;
+    grid-template-columns: repeat(auto-fit, minmax(170px, 1fr));
+    gap: 14px;
+    margin-bottom: 40px;
   }
-  .cat-card {
-    border: 1.5px solid #e5e7eb; border-radius: 16px;
-    padding: 1.75rem; cursor: pointer;
-    transition: all 0.25s; position: relative; overflow: hidden;
-    text-decoration: none; color: inherit;
+  .disease-card {
+    background: white;
+    border: 1.5px solid var(--blue-100);
+    border-radius: 14px;
+    padding: 20px 16px;
+    text-align: center;
+    cursor: pointer;
+    transition: border-color 0.2s, background 0.2s, transform 0.15s;
+  }
+  .disease-card:hover {
+    border-color: var(--blue-400);
+    background: var(--blue-50);
+    transform: translateY(-2px);
+  }
+  .disease-card.active {
+    border-color: var(--blue-600);
+    background: var(--blue-50);
+    box-shadow: 0 0 0 3px rgba(55,138,221,0.18);
+  }
+  .disease-icon {
+    font-size: 36px;
+    margin-bottom: 10px;
     display: block;
   }
-  .cat-card::before {
-    content: ''; position: absolute;
-    top: 0; left: 0; right: 0; height: 4px;
-    background: var(--card-color, var(--teal));
-    border-radius: 16px 16px 0 0;
+  .disease-card h3 {
+    font-size: 15px;
+    font-weight: 700;
+    color: var(--blue-800);
+    line-height: 1.3;
   }
-  .cat-card:hover {
-    border-color: var(--card-color, var(--teal));
-    transform: translateY(-4px);
-    box-shadow: 0 12px 32px rgba(0,0,0,0.1);
-  }
-  .cat-icon {
-    font-size: 2.2rem; margin-bottom: 1rem;
-    width: 56px; height: 56px;
-    background: var(--card-bg, var(--teal-pale));
-    border-radius: 14px;
-    display: flex; align-items: center; justify-content: center;
-  }
-  .cat-card h3 { font-size: 1.1rem; font-weight: 700; margin-bottom: 0.5rem; }
-  .cat-card p { color: var(--gray); font-size: 0.9rem; line-height: 1.6; }
-  .cat-count {
-    display: inline-block; margin-top: 1rem;
-    font-size: 0.8rem; font-weight: 600;
-    color: var(--card-color, var(--teal));
-    background: var(--card-bg, var(--teal-pale));
-    padding: 0.2rem 0.7rem; border-radius: 999px;
+  .disease-card p {
+    font-size: 12px;
+    color: var(--gray-600);
+    margin-top: 4px;
   }
 
-  /* HOW IT WORKS */
-  .how { background: var(--teal-pale); }
-  .steps {
-    display: grid; grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
-    gap: 2rem; margin-top: 3rem;
+  /* CONTENT PANEL */
+  .content-panel {
+    background: white;
+    border-radius: 16px;
+    border: 1px solid var(--blue-100);
+    padding: 32px;
+    margin-bottom: 40px;
+    display: none;
   }
-  .step { text-align: center; }
-  .step-num {
-    width: 52px; height: 52px; border-radius: 50%;
-    background: var(--teal); color: white;
-    font-size: 1.3rem; font-weight: 700;
-    display: flex; align-items: center; justify-content: center;
-    margin: 0 auto 1.2rem;
+  .content-panel.active { display: block; }
+  .content-panel h2 {
+    font-family: 'Noto Serif Thai', serif;
+    font-size: 26px;
+    color: var(--blue-900);
+    margin-bottom: 8px;
   }
-  .step h3 { font-size: 1rem; font-weight: 700; margin-bottom: 0.5rem; }
-  .step p { color: var(--gray); font-size: 0.9rem; }
-
-  /* ARTICLE PREVIEW */
-  .articles { background: white; }
-  .article-grid {
-    display: grid; grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
-    gap: 1.5rem; margin-top: 3rem;
-  }
-  .article-card {
-    border-radius: 16px; overflow: hidden;
-    border: 1.5px solid #e5e7eb;
-    transition: all 0.25s; cursor: pointer;
-  }
-  .article-card:hover { box-shadow: 0 12px 32px rgba(0,0,0,0.1); transform: translateY(-4px); }
-  .article-img {
-    height: 160px;
-    display: flex; align-items: center; justify-content: center;
-    font-size: 3rem;
-  }
-  .article-body { padding: 1.25rem; }
-  .article-tag {
-    font-size: 0.78rem; font-weight: 700;
-    color: var(--teal); text-transform: uppercase;
-    letter-spacing: 0.06em; margin-bottom: 0.5rem;
-  }
-  .article-card h3 { font-size: 1rem; font-weight: 700; margin-bottom: 0.5rem; line-height: 1.5; }
-  .article-card p { color: var(--gray); font-size: 0.88rem; line-height: 1.6; }
-  .article-meta {
-    margin-top: 1rem; padding-top: 0.75rem;
-    border-top: 1px solid #f3f4f6;
-    display: flex; align-items: center; gap: 0.5rem;
-    font-size: 0.8rem; color: var(--gray);
+  .content-panel .subtitle {
+    color: var(--gray-600);
+    font-size: 15px;
+    margin-bottom: 24px;
+    padding-bottom: 20px;
+    border-bottom: 1px solid var(--gray-100);
   }
 
-  /* SYMPTOM CHECKER TEASER */
-  .checker {
-    background: linear-gradient(135deg, var(--navy), #1a4a6e);
-    color: white; text-align: center;
+  .info-sections { display: grid; gap: 20px; }
+  .info-block {
+    border-radius: 12px;
+    padding: 20px;
+    border-left: 4px solid transparent;
   }
-  .checker .section-title { color: white; }
-  .checker .section-desc { color: rgba(255,255,255,0.75); margin: 0 auto; }
-  .checker-box {
-    background: rgba(255,255,255,0.08);
-    border: 1.5px solid rgba(255,255,255,0.15);
-    border-radius: 20px; padding: 2.5rem;
-    max-width: 700px; margin: 2.5rem auto 0;
-    display: flex; flex-wrap: wrap; gap: 1rem;
+  .info-block.what  { background: var(--blue-50);  border-color: var(--blue-400); }
+  .info-block.warn  { background: var(--red-50);   border-color: var(--red-400); }
+  .info-block.care  { background: var(--green-50); border-color: var(--green-400); }
+  .info-block.med   { background: var(--amber-50); border-color: var(--amber-400); }
+  .info-block.when  { background: var(--teal-50);  border-color: var(--teal-400); }
+
+  .info-block h4 {
+    font-size: 16px;
+    font-weight: 700;
+    margin-bottom: 10px;
+    display: flex;
     align-items: center;
+    gap: 8px;
   }
-  .checker-box input {
-    flex: 1; min-width: 200px;
-    background: rgba(255,255,255,0.1);
-    border: 1px solid rgba(255,255,255,0.25);
-    color: white; padding: 0.85rem 1.2rem;
-    border-radius: 10px; font-size: 1rem;
-    font-family: 'Sarabun', sans-serif; outline: none;
-  }
-  .checker-box input::placeholder { color: rgba(255,255,255,0.45); }
-  .checker-box button {
-    background: var(--gold); color: var(--navy);
-    border: none; padding: 0.85rem 1.8rem;
-    border-radius: 10px; font-size: 1rem;
-    font-weight: 700; cursor: pointer;
-    font-family: 'Sarabun', sans-serif;
-    transition: opacity 0.2s;
-  }
-  .checker-box button:hover { opacity: 0.9; }
-  .symptom-tags { display: flex; flex-wrap: wrap; gap: 0.6rem; justify-content: center; margin-top: 1.5rem; }
-  .symptom-tag {
-    background: rgba(255,255,255,0.1); color: rgba(255,255,255,0.8);
-    border: 1px solid rgba(255,255,255,0.2);
-    padding: 0.3rem 0.9rem; border-radius: 999px; font-size: 0.85rem;
-    cursor: pointer; transition: background 0.2s;
-  }
-  .symptom-tag:hover { background: rgba(255,255,255,0.2); }
+  .info-block.what h4  { color: var(--blue-800); }
+  .info-block.warn h4  { color: var(--red-600); }
+  .info-block.care h4  { color: var(--green-600); }
+  .info-block.med h4   { color: var(--amber-600); }
+  .info-block.when h4  { color: var(--teal-600); }
+
+  .info-block ul { padding-left: 20px; }
+  .info-block li { margin-bottom: 6px; font-size: 16px; line-height: 1.7; }
 
   /* FAQ */
-  .faq { background: var(--gray-light); }
-  .faq-list { max-width: 780px; margin: 2.5rem auto 0; }
+  .faq-section { margin-bottom: 40px; }
   .faq-item {
-    background: white; border-radius: 12px; margin-bottom: 1rem;
-    overflow: hidden; border: 1px solid #e5e7eb;
+    background: white;
+    border: 1px solid var(--blue-100);
+    border-radius: 12px;
+    margin-bottom: 10px;
+    overflow: hidden;
   }
   .faq-q {
-    padding: 1.1rem 1.5rem;
-    font-weight: 600; cursor: pointer;
-    display: flex; justify-content: space-between; align-items: center;
-    transition: background 0.2s;
+    width: 100%;
+    text-align: left;
+    background: none;
+    border: none;
+    padding: 18px 20px;
+    font-size: 16px;
+    font-weight: 600;
+    color: var(--blue-800);
+    cursor: pointer;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    font-family: 'Sarabun', sans-serif;
   }
-  .faq-q:hover { background: var(--teal-pale); }
-  .faq-q .arrow { font-size: 1.2rem; transition: transform 0.3s; }
+  .faq-q:hover { background: var(--blue-50); }
   .faq-a {
-    display: none; padding: 0 1.5rem 1.1rem;
-    color: var(--gray); font-size: 0.95rem; line-height: 1.8;
+    display: none;
+    padding: 0 20px 18px;
+    color: var(--gray-600);
+    font-size: 15px;
+    line-height: 1.8;
   }
   .faq-item.open .faq-a { display: block; }
-  .faq-item.open .arrow { transform: rotate(180deg); }
+  .faq-arrow { transition: transform 0.2s; font-size: 18px; }
+  .faq-item.open .faq-arrow { transform: rotate(180deg); }
 
-  /* EMERGENCY */
-  .emergency {
-    background: var(--red-soft);
-    border: 2px solid #fca5a5;
-    border-radius: 20px; padding: 2rem;
-    max-width: 900px; margin: 0 auto;
-    display: flex; gap: 1.5rem; align-items: flex-start;
+  /* CONTACT */
+  .contact-section {
+    background: var(--blue-900);
+    color: white;
+    border-radius: 16px;
+    padding: 32px;
+    text-align: center;
   }
-  .emg-icon { font-size: 2.5rem; flex-shrink: 0; }
-  .emergency h3 { color: var(--red); font-size: 1.15rem; margin-bottom: 0.5rem; }
-  .emergency p { color: #7f1d1d; font-size: 0.95rem; line-height: 1.7; }
-  .emg-num {
-    display: inline-block; margin-top: 0.75rem;
-    background: var(--red); color: white;
-    font-size: 1.2rem; font-weight: 700;
-    padding: 0.35rem 1rem; border-radius: 8px;
+  .contact-section h3 {
+    font-size: 20px;
+    font-weight: 700;
+    margin-bottom: 8px;
   }
-  .emg-section { background: white; padding: 3rem 2rem; }
+  .contact-section p { font-size: 15px; color: var(--blue-200); margin-bottom: 20px; }
+  .contact-grid { display: flex; gap: 16px; justify-content: center; flex-wrap: wrap; }
+  .contact-btn {
+    background: white;
+    color: var(--blue-900);
+    border: none;
+    border-radius: 10px;
+    padding: 14px 24px;
+    font-size: 16px;
+    font-weight: 700;
+    cursor: pointer;
+    font-family: 'Sarabun', sans-serif;
+    transition: background 0.15s;
+    text-decoration: none;
+    display: inline-block;
+  }
+  .contact-btn:hover { background: var(--blue-100); }
+  .contact-btn.outline {
+    background: transparent;
+    color: white;
+    border: 1.5px solid rgba(255,255,255,0.5);
+  }
+  .contact-btn.outline:hover { background: rgba(255,255,255,0.1); }
 
   /* FOOTER */
   footer {
-    background: var(--navy); color: rgba(255,255,255,0.7);
-    padding: 3rem 2rem 2rem;
-  }
-  .footer-grid {
-    max-width: 1100px; margin: 0 auto;
-    display: grid; grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
-    gap: 2.5rem; margin-bottom: 2.5rem;
-  }
-  .footer-brand h3 {
-    font-family: 'Noto Serif Thai', serif;
-    color: white; font-size: 1.3rem; margin-bottom: 0.75rem;
-  }
-  .footer-brand p { font-size: 0.9rem; line-height: 1.7; }
-  .footer-col h4 { color: white; font-size: 0.95rem; margin-bottom: 1rem; }
-  .footer-col ul { list-style: none; }
-  .footer-col li { margin-bottom: 0.5rem; }
-  .footer-col a { color: rgba(255,255,255,0.6); text-decoration: none; font-size: 0.9rem; transition: color 0.2s; }
-  .footer-col a:hover { color: var(--gold); }
-  .footer-bottom {
-    max-width: 1100px; margin: 0 auto;
-    padding-top: 1.5rem; border-top: 1px solid rgba(255,255,255,0.1);
-    display: flex; justify-content: space-between; flex-wrap: wrap; gap: 1rem;
-    font-size: 0.85rem;
-  }
-  .disclaimer {
-    background: rgba(255,255,255,0.05);
-    padding: 0.75rem 1rem; border-radius: 8px; font-size: 0.82rem;
-    margin-bottom: 1.5rem; line-height: 1.6;
+    text-align: center;
+    padding: 24px;
+    font-size: 13px;
+    color: var(--gray-400);
+    border-top: 1px solid var(--gray-100);
+    margin-top: 20px;
   }
 
-  @media (max-width: 768px) {
-    nav { padding: 0 1rem; }
-    .nav-links { display: none; }
-    .hero-stats { gap: 1.5rem; }
-    .emergency { flex-direction: column; }
-    .footer-bottom { flex-direction: column; text-align: center; }
+  /* EMPTY STATE */
+  .empty-state {
+    text-align: center;
+    padding: 40px 20px;
+    color: var(--gray-400);
+    background: white;
+    border-radius: 16px;
+    border: 1.5px dashed var(--blue-100);
+    margin-bottom: 40px;
   }
+  .empty-state .icon { font-size: 48px; margin-bottom: 12px; }
+  .empty-state p { font-size: 16px; }
 
-  /* ANIMATIONS */
-  @keyframes fadeUp {
-    from { opacity: 0; transform: translateY(20px); }
-    to { opacity: 1; transform: translateY(0); }
+  @media (max-width: 600px) {
+    .hero h2 { font-size: 24px; }
+    .disease-grid { grid-template-columns: repeat(2, 1fr); }
+    .content-panel { padding: 20px; }
+    .header-text h1 { font-size: 15px; }
   }
-  .hero-content > * {
-    animation: fadeUp 0.7s ease both;
-  }
-  .hero-content > *:nth-child(1) { animation-delay: 0.1s; }
-  .hero-content > *:nth-child(2) { animation-delay: 0.25s; }
-  .hero-content > *:nth-child(3) { animation-delay: 0.4s; }
-  .hero-content > *:nth-child(4) { animation-delay: 0.55s; }
 </style>
 </head>
 <body>
 
-<!-- NAV -->
-<nav>
-  <a class="nav-logo" href="#">Med<span>Wise</span></a>
-  <ul class="nav-links">
-    <li><a href="#categories">หมวดโรค</a></li>
-    <li><a href="#articles">บทความ</a></li>
-    <li><a href="#checker">ตรวจอาการ</a></li>
-    <li><a href="#faq">คำถาม</a></li>
-  </ul>
-  <a class="nav-cta" href="#categories">เริ่มต้น</a>
-</nav>
-
-<!-- HERO -->
-<section class="hero" id="home">
-  <div class="hero-content">
-    <div class="hero-badge">🩺 ความรู้ทางอายุรกรรม ฉบับเข้าใจง่าย</div>
-    <h1>รู้จักโรค<br><em>เข้าใจตัวเอง</em><br>ดูแลร่างกายได้</h1>
-    <p>โดยแผนกอายุรกรรม โรงพยาบาลสันทราย<br>โทร 053-921199</p>
-    <div class="hero-btns">
-      <a href="#categories" class="btn-primary">เลือกหมวดโรค</a>
-      <a href="#checker" class="btn-outline">ตรวจสอบอาการ</a>
+<header>
+  <div class="header-inner">
+    <div class="logo-circle">
+      <svg viewBox="0 0 28 28" fill="none" xmlns="http://www.w3.org/2000/svg">
+        <path d="M14 3C8.477 3 4 7.477 4 13s4.477 10 10 10 10-4.477 10-10S19.523 3 14 3z" fill="#E6F1FB"/>
+        <path d="M14 8v6l4 2" stroke="#185FA5" stroke-width="2" stroke-linecap="round"/>
+        <path d="M10 13h8M14 9v8" stroke="#0C447C" stroke-width="1.5" stroke-linecap="round"/>
+      </svg>
     </div>
-
-  </div>
-</section>
-
-<!-- CATEGORIES -->
-<section class="categories" id="categories">
-  <div class="container">
-    <p class="section-tag">หมวดหมู่โรค</p>
-    <h2 class="section-title">เลือกโรคที่ต้องการเรียนรู้</h2>
-    <p class="section-desc">ครอบคลุมโรคทางอายุรกรรมที่พบบ่อย เนื้อหาเขียนให้เข้าใจง่าย พร้อมแนวทางดูแลตัวเอง</p>
-
-    <div class="cat-grid">
-      <a class="cat-card" href="#" style="--card-color:#0b7b6b;--card-bg:#e6f5f2">
-        <div class="cat-icon" style="--card-bg:#e6f5f2">❤️</div>
-        <h3>โรคหัวใจและหลอดเลือด</h3>
-        <p>โรคหลอดเลือดหัวใจ ความดันโลหิตสูง หัวใจล้มเหลว และอื่นๆ</p>
-        <span class="cat-count">12 บทความ</span>
-      </a>
-      <a class="cat-card" href="#" style="--card-color:#d97706;--card-bg:#fef3c7">
-        <div class="cat-icon" style="--card-bg:#fef3c7">🩸</div>
-        <h3>โรคเบาหวาน</h3>
-        <p>เบาหวานชนิดที่ 1 ชนิดที่ 2 การควบคุมระดับน้ำตาล และภาวะแทรกซ้อน</p>
-        <span class="cat-count" style="color:#d97706;background:#fef3c7">10 บทความ</span>
-      </a>
-      <a class="cat-card" href="#" style="--card-color:#7c3aed;--card-bg:#f5f3ff">
-        <div class="cat-icon" style="--card-bg:#f5f3ff">🫁</div>
-        <h3>โรคระบบทางเดินหายใจ</h3>
-        <p>โรคปอด หอบหืด COPD โควิด-19 และการดูแลระบบหายใจ</p>
-        <span class="cat-count" style="color:#7c3aed;background:#f5f3ff">9 บทความ</span>
-      </a>
-      <a class="cat-card" href="#" style="--card-color:#059669;--card-bg:#ecfdf5">
-        <div class="cat-icon" style="--card-bg:#ecfdf5">🫀</div>
-        <h3>โรคตับและทางเดินอาหาร</h3>
-        <p>โรคตับ ไวรัสตับอักเสบ กระเพาะอาหาร ลำไส้แปรปรวน</p>
-        <span class="cat-count" style="color:#059669;background:#ecfdf5">11 บทความ</span>
-      </a>
-      <a class="cat-card" href="#" style="--card-color:#dc2626;--card-bg:#fef2f2">
-        <div class="cat-icon" style="--card-bg:#fef2f2">🧠</div>
-        <h3>โรคระบบประสาท</h3>
-        <p>โรคหลอดเลือดสมอง ไมเกรน ลมชัก และโรคทางระบบประสาทอื่นๆ</p>
-        <span class="cat-count" style="color:#dc2626;background:#fef2f2">8 บทความ</span>
-      </a>
-      <a class="cat-card" href="#" style="--card-color:#2563eb;--card-bg:#eff6ff">
-        <div class="cat-icon" style="--card-bg:#eff6ff">🦠</div>
-        <h3>โรคติดเชื้อและภูมิคุ้มกัน</h3>
-        <p>โรคไข้เลือดออก มาลาเรีย เอดส์ และโรคภูมิคุ้มกันบกพร่อง</p>
-        <span class="cat-count" style="color:#2563eb;background:#eff6ff">7 บทความ</span>
-      </a>
-      <a class="cat-card" href="#" style="--card-color:#0891b2;--card-bg:#ecfeff">
-        <div class="cat-icon" style="--card-bg:#ecfeff">💧</div>
-        <h3>โรคไตและทางเดินปัสสาวะ</h3>
-        <p>โรคไตเรื้อรัง นิ่วในไต ไตอักเสบ และการดูแลไต</p>
-        <span class="cat-count" style="color:#0891b2;background:#ecfeff">8 บทความ</span>
-      </a>
-      <a class="cat-card" href="#" style="--card-color:#9d174d;--card-bg:#fdf2f8">
-        <div class="cat-icon" style="--card-bg:#fdf2f8">🦴</div>
-        <h3>โรคข้อและกล้ามเนื้อ</h3>
-        <p>ข้ออักเสบ รูมาตอยด์ เก๊าท์ ออสตีโอพอโรซิส</p>
-        <span class="cat-count" style="color:#9d174d;background:#fdf2f8">6 บทความ</span>
-      </a>
+    <div class="header-text">
+      <h1>คลังความรู้สุขภาพ</h1>
+      <p>แผนกอายุรกรรม โรงพยาบาลสันทราย จังหวัดเชียงใหม่</p>
     </div>
   </div>
-</section>
+</header>
 
-<!-- HOW IT WORKS -->
-<section class="how" id="how">
-  <div class="container">
-    <p class="section-tag">วิธีใช้งาน</p>
-    <h2 class="section-title">ใช้งานง่าย เพียง 3 ขั้นตอน</h2>
-    <div class="steps">
-      <div class="step">
-        <div class="step-num">1</div>
-        <h3>เลือกโรคที่สนใจ</h3>
-        <p>เลือกหมวดโรคหรือค้นหาชื่อโรคที่คุณต้องการเรียนรู้</p>
-      </div>
-      <div class="step">
-        <div class="step-num">2</div>
-        <h3>อ่านบทความ</h3>
-        <p>เนื้อหาเขียนให้เข้าใจง่าย ตรวจสอบโดยทีมแพทย์และเภสัชกร</p>
-      </div>
-      <div class="step">
-        <div class="step-num">3</div>
-        <h3>นำไปปฏิบัติ</h3>
-        <p>แนวทางดูแลตัวเอง คำแนะนำการพบแพทย์ และคำถามที่ควรถาม</p>
-      </div>
+<div class="hero">
+  <h2>เข้าใจโรค ดูแลตัวเองได้</h2>
+  <p>เลือกหัวข้อที่สนใจเพื่ออ่านข้อมูลสุขภาพ ภาษาไทยเข้าใจง่าย จัดทำโดยทีมแพทย์และพยาบาล</p>
+</div>
+
+<main>
+  <div class="section-title">เลือกโรคที่ต้องการเรียนรู้</div>
+
+  <div class="disease-grid">
+    <div class="disease-card" onclick="showContent('diabetes')">
+      <span class="disease-icon">🩸</span>
+      <h3>โรคเบาหวาน</h3>
+      <p>Diabetes</p>
+    </div>
+    <div class="disease-card" onclick="showContent('hypertension')">
+      <span class="disease-icon">💊</span>
+      <h3>ความดันโลหิตสูง</h3>
+      <p>Hypertension</p>
+    </div>
+    <div class="disease-card" onclick="showContent('heart')">
+      <span class="disease-icon">❤️</span>
+      <h3>โรคหัวใจ</h3>
+      <p>Heart Disease</p>
+    </div>
+    <div class="disease-card" onclick="showContent('medication')">
+      <span class="disease-icon">💉</span>
+      <h3>การใช้ยา</h3>
+      <p>Medication</p>
+    </div>
+    <div class="disease-card" onclick="showContent('kidney')">
+      <span class="disease-icon">🫘</span>
+      <h3>โรคไต</h3>
+      <p>Kidney Disease</p>
+    </div>
+    <div class="disease-card" onclick="showContent('cholesterol')">
+      <span class="disease-icon">🔬</span>
+      <h3>ไขมันในเลือดสูง</h3>
+      <p>Dyslipidemia</p>
     </div>
   </div>
-</section>
 
-<!-- ARTICLES -->
-<section class="articles" id="articles">
-  <div class="container">
-    <p class="section-tag">บทความล่าสุด</p>
-    <h2 class="section-title">ความรู้ที่คุณควรรู้</h2>
-    <p class="section-desc">บทความตรวจสอบโดยแพทย์ อัปเดตตามแนวทางเวชปฏิบัติล่าสุด</p>
-
-    <div class="article-grid">
-      <div class="article-card" onclick="document.getElementById('heart-failure').scrollIntoView({behavior:'smooth'})" style="cursor:pointer">
-        <div class="article-img" style="background:#e6f5f2">❤️‍🩹</div>
-        <div class="article-body">
-          <div class="article-tag">โรคหัวใจ</div>
-          <h3>คู่มือดูแลตนเองสำหรับผู้ป่วยหัวใจล้มเหลวเฉียบพลัน</h3>
-          <p>อาการที่ต้องรู้จัก การดูแลตัวเอง อาหาร ยา และการออกกำลังกายที่เหมาะสม</p>
-          <div class="article-meta">🕐 อ่าน 8 นาที &nbsp;|&nbsp; ✅ โรงพยาบาลสันทราย</div>
-        </div>
-      </div>
-      <div class="article-card">
-        <div class="article-img" style="background:#fef3c7">🩺</div>
-        <div class="article-body">
-          <div class="article-tag">เบาหวาน</div>
-          <h3>วิธีดูแลเท้าสำหรับผู้ป่วยเบาหวาน ป้องกันภาวะแทรกซ้อน</h3>
-          <p>ผู้ป่วยเบาหวานเสี่ยงบาดแผลที่เท้า ดูแลอย่างไรให้ถูกต้องและปลอดภัย</p>
-          <div class="article-meta">🕐 อ่าน 7 นาที &nbsp;|&nbsp; ✅ ตรวจสอบโดยแพทย์</div>
-        </div>
-      </div>
-      <div class="article-card">
-        <div class="article-img" style="background:#f5f3ff">🫁</div>
-        <div class="article-body">
-          <div class="article-tag">ระบบหายใจ</div>
-          <h3>COPD คืออะไร? เข้าใจโรคปอดอุดกั้นเรื้อรังใน 5 นาที</h3>
-          <p>อธิบายสาเหตุ อาการ การรักษา และวิธีชะลอการดำเนินของโรค</p>
-          <div class="article-meta">🕐 อ่าน 5 นาที &nbsp;|&nbsp; ✅ ตรวจสอบโดยแพทย์</div>
-        </div>
-      </div>
-    </div>
+  <!-- Empty state -->
+  <div class="empty-state" id="empty-state">
+    <div class="icon">👆</div>
+    <p>กรุณาเลือกหัวข้อด้านบนเพื่อดูข้อมูลสุขภาพ</p>
   </div>
-</section>
 
-
-<!-- HEART FAILURE DETAIL -->
-<section id="heart-failure" style="background:#f8fffe;padding:4rem 2rem;">
-  <div class="container">
-    <p class="section-tag">❤️ โรคหัวใจ</p>
-    <h2 class="section-title">คู่มือดูแลตนเองสำหรับผู้ป่วยหัวใจล้มเหลวเฉียบพลัน</h2>
-    <p style="color:var(--gray);margin-bottom:2.5rem">โดยแผนกอายุรกรรม โรงพยาบาลสันทราย</p>
-
-    <div style="background:white;border-radius:16px;padding:2rem;margin-bottom:1.5rem;border:1.5px solid #e5e7eb;">
-      <h3 style="color:var(--teal);font-size:1.2rem;margin-bottom:1rem">💡 โรคหัวใจล้มเหลวคืออะไร?</h3>
-      <p style="margin-bottom:1rem">โรคหัวใจล้มเหลว คือ ภาวะที่หัวใจไม่สามารถสูบฉีดเลือดไปเลี้ยงร่างกายได้เพียงพอ ทำให้เกิดอาการเหนื่อยง่าย บวม นอนราบไม่ได้</p>
-      <p style="font-weight:600;margin-bottom:0.75rem">อาการที่พบบ่อย</p>
-      <ul style="list-style:none;display:grid;grid-template-columns:repeat(auto-fill,minmax(240px,1fr));gap:0.5rem">
-        <li style="background:var(--teal-pale);padding:0.5rem 0.9rem;border-radius:8px;font-size:0.92rem">😮 เหนื่อยง่าย หอบ โดยเฉพาะเวลาเดินหรือขึ้นบันได</li>
-        <li style="background:var(--teal-pale);padding:0.5rem 0.9rem;border-radius:8px;font-size:0.92rem">🛏️ หายใจลำบากเมื่อนอนราบ ต้องหนุนหมอนสูง</li>
-        <li style="background:var(--teal-pale);padding:0.5rem 0.9rem;border-radius:8px;font-size:0.92rem">🦵 เท้าบวม ขาบวม หรือท้องบวม</li>
-        <li style="background:var(--teal-pale);padding:0.5rem 0.9rem;border-radius:8px;font-size:0.92rem">⚖️ น้ำหนักตัวเพิ่มขึ้นรวดเร็ว</li>
-        <li style="background:var(--teal-pale);padding:0.5rem 0.9rem;border-radius:8px;font-size:0.92rem">💓 ใจสั่น อ่อนเพลีย ไม่มีแรง</li>
-      </ul>
-    </div>
-
-    <div style="background:white;border-radius:16px;padding:2rem;margin-bottom:1.5rem;border:1.5px solid #e5e7eb;">
-      <h3 style="color:var(--teal);font-size:1.2rem;margin-bottom:1rem">📋 การดูแลตนเอง</h3>
-      <ol style="padding-left:1.2rem;display:flex;flex-direction:column;gap:0.75rem;font-size:0.95rem">
-        <li>รับประทานยาตามแพทย์สั่ง <strong>สม่ำเสมอ ห้ามหยุดยาเอง</strong></li>
-        <li>หากลืมยา → ไม่ควรกินซ้ำสองเท่า</li>
-        <li>หากมีอาการผิดปกติจากยา เช่น เวียนศีรษะ หน้ามืด ใจสั่น ให้รีบแจ้งแพทย์</li>
-        <li>💊 ยาขับปัสสาวะ Furosemide — ปรับเพิ่ม/ลดได้ตามอาการบวม/เหนื่อย หรือหากน้ำหนักเพิ่มผิดปกติ</li>
-        <li>ลดอาหารเค็ม เช่น น้ำปลา ซีอิ๊ว ผงชูรส อาหารหมักดอง ไส้กรอก แฮม บะหมี่กึ่งสำเร็จรูป</li>
-        <li>ควบคุมปริมาณน้ำดื่ม (โดยทั่วไป 1.5–2 ลิตร/วัน) หากเหนื่อยให้จำกัดน้ำ 1 ลิตร/วัน</li>
-        <li>ออกกำลังกายเบาๆ เช่น เดินช้าๆ วันละ 20–30 นาที หยุดทันทีหากมีอาการเหนื่อย หอบ เวียนศีรษะ</li>
-      </ol>
-    </div>
-
-    <div style="display:grid;grid-template-columns:repeat(auto-fit,minmax(280px,1fr));gap:1.5rem;margin-bottom:1.5rem">
-      <div style="background:white;border-radius:16px;padding:1.75rem;border:1.5px solid #e5e7eb;">
-        <h3 style="color:var(--teal);font-size:1.1rem;margin-bottom:1rem">🥗 คำแนะนำเรื่องอาหาร</h3>
-        <div style="background:#fef2f2;border-radius:10px;padding:0.9rem;margin-bottom:0.75rem">
-          <p style="font-weight:700;color:#dc2626;font-size:0.9rem;margin-bottom:0.3rem">🔴 งด / เลี่ยง</p>
-          <p style="font-size:0.87rem;color:#7f1d1d">ผงชูรส ซุปก้อน อาหารแปรรูป (ไส้กรอก แฮม หมูยอ) ไข่เค็ม บะหมี่กึ่งสำเร็จรูป อาหารกระป๋องรสเค็ม</p>
-        </div>
-        <div style="background:#fefce8;border-radius:10px;padding:0.9rem;margin-bottom:0.75rem">
-          <p style="font-weight:700;color:#ca8a04;font-size:0.9rem;margin-bottom:0.3rem">🟡 ทานได้แต่น้อย</p>
-          <p style="font-size:0.87rem;color:#713f12">น้ำปลา ซีอิ๊ว เต้าเจี้ยว — ไม่เกิน 1 ช้อนชา/มื้อ</p>
-        </div>
-        <div style="background:#f0fdf4;border-radius:10px;padding:0.9rem;margin-bottom:0.75rem">
-          <p style="font-weight:700;color:#16a34a;font-size:0.9rem;margin-bottom:0.3rem">🟢 แนะนำ</p>
-          <p style="font-size:0.87rem;color:#14532d">ผักผลไม้สด เนื้อสัตว์ไม่ติดมัน เครื่องเทศสมุนไพรแทนความเค็ม</p>
-        </div>
-        <div style="padding:0.9rem;background:var(--teal-pale);border-radius:10px;font-size:0.87rem">
-          💧 <strong>น้ำดื่ม:</strong> 2–2.5 ลิตร/วัน<br>
-          <span style="color:#dc2626">⚠️ หากเหนื่อย/บวม ลดเหลือ 1 ลิตร/วัน</span>
-        </div>
-      </div>
-
-      <div style="background:white;border-radius:16px;padding:1.75rem;border:1.5px solid #e5e7eb;">
-        <h3 style="color:var(--teal);font-size:1.1rem;margin-bottom:1rem">💊 ยารักษาที่ควรรู้จัก</h3>
-        <div style="display:flex;flex-direction:column;gap:0.7rem;font-size:0.87rem">
-          <div style="background:#eff6ff;border-radius:10px;padding:0.8rem">
-            <p style="font-weight:700;color:#1d4ed8">1. ยาขับปัสสาวะ — Furosemide</p>
-            <p style="color:#1e3a8a">ขับน้ำ/โซเดียม ลดบวม ลดน้ำท่วมปอด</p>
-          </div>
-          <div style="background:#f0fdf4;border-radius:10px;padding:0.8rem">
-            <p style="font-weight:700;color:#15803d">2. ยากลุ่ม ACEIs / ARBs</p>
-            <p style="color:#14532d">Enalapril, Losartan, Valsartan — ช่วยหัวใจบีบตัว ลดความดัน</p>
-          </div>
-          <div style="background:#fdf4ff;border-radius:10px;padding:0.8rem">
-            <p style="font-weight:700;color:#7e22ce">3. ยาเบต้าบล็อกเกอร์</p>
-            <p style="color:#581c87">Carvedilol, Bisoprolol — ลดภาระหัวใจ ชะลอการดำเนินโรค</p>
-          </div>
-          <div style="background:#fff7ed;border-radius:10px;padding:0.8rem">
-            <p style="font-weight:700;color:#c2410c">4. ยายับยั้งแอลโดสเตอโรน</p>
-            <p style="color:#7c2d12">Spironolactone — ป้องกันพังผืดที่หัวใจ</p>
-          </div>
-        </div>
-        <div style="margin-top:0.75rem;background:#fef2f2;border-radius:10px;padding:0.8rem;font-size:0.85rem;color:#7f1d1d">
-          ⚠️ หลีกเลี่ยงยาสมุนไพร ยาหม้อ และ<strong>ยากลุ่ม NSAID</strong> (ยาแก้ปวดลดอักเสบ ยาคลายเส้น)
-        </div>
-      </div>
-
-      <div style="background:white;border-radius:16px;padding:1.75rem;border:1.5px solid #e5e7eb;">
-        <h3 style="color:var(--teal);font-size:1.1rem;margin-bottom:1rem">🏃 การออกกำลังกาย</h3>
-        <p style="font-size:0.9rem;margin-bottom:0.9rem;color:var(--gray)">3–5 วัน/สัปดาห์ วันละ 1–2 รอบ เริ่ม 5–10 นาที เพิ่มได้ถึง 20–60 นาที ไม่ออกกำลังกายหลังอาหารอิ่มใหม่ (รอ 1–2 ชม.)</p>
-        <p style="font-weight:600;font-size:0.9rem;margin-bottom:0.5rem">การเคลื่อนไหวที่แนะนำ (5–10 ครั้ง)</p>
-        <ul style="list-style:none;font-size:0.87rem;display:flex;flex-direction:column;gap:0.35rem;margin-bottom:0.9rem">
-          <li style="padding:0.35rem 0.7rem;background:var(--teal-pale);border-radius:6px">✋ กำมือ–แบมือ / งอ–เหยียดศอก</li>
-          <li style="padding:0.35rem 0.7rem;background:var(--teal-pale);border-radius:6px">💪 ชูแขนขึ้นด้านบน–ลดลง</li>
-          <li style="padding:0.35rem 0.7rem;background:var(--teal-pale);border-radius:6px">🦶 กระดกข้อเท้าขึ้น–ลง</li>
-          <li style="padding:0.35rem 0.7rem;background:var(--teal-pale);border-radius:6px">🦵 งอขา–เหยียดขา (ทีละข้าง)</li>
+  <!-- DIABETES -->
+  <div class="content-panel" id="content-diabetes">
+    <h2>🩸 โรคเบาหวาน</h2>
+    <p class="subtitle">ข้อมูลสำหรับผู้ป่วยและผู้ดูแล — จัดทำโดยแพทย์อายุรกรรม</p>
+    <div class="info-sections">
+      <div class="info-block what">
+        <h4>🔵 โรคเบาหวานคืออะไร?</h4>
+        <ul>
+          <li>ร่างกายมีน้ำตาลในเลือดสูงเกินปกติ</li>
+          <li>เกิดจากตับอ่อนผลิตอินซูลินไม่พอ หรือร่างกายตอบสนองต่ออินซูลินลดลง</li>
+          <li>ค่าน้ำตาลที่ดีควรอยู่ที่ 80–130 มก./ดล. (ก่อนอาหาร)</li>
         </ul>
-        <div style="background:#fef2f2;border-radius:10px;padding:0.85rem;font-size:0.85rem;color:#7f1d1d">
-          <p style="font-weight:700;margin-bottom:0.3rem">❌ หยุดทันทีหากมี</p>
-          <p>แน่นหน้าอก · เหนื่อยมาก หายใจไม่ทัน · เวียนศีรษะ · ใจสั่น · บวมเพิ่ม</p>
-        </div>
       </div>
-    </div>
-
-    <div style="background:white;border-radius:16px;padding:2rem;margin-bottom:1.5rem;border:1.5px solid #e5e7eb;">
-      <h3 style="color:var(--teal);font-size:1.1rem;margin-bottom:1rem">⚖️ การชั่งน้ำหนัก</h3>
-      <div style="display:grid;grid-template-columns:repeat(auto-fit,minmax(240px,1fr));gap:1rem;font-size:0.92rem">
-        <p>ชั่งน้ำหนัก <strong>ทุกเช้า</strong> หลังตื่นนอน เข้าห้องน้ำแล้ว ใช้เครื่องชั่งเดิม เสื้อผ้าใกล้เคียงกัน และ<strong>จดบันทึกทุกวัน</strong></p>
-        <div style="background:#fef2f2;border-radius:10px;padding:1rem">
-          <p style="font-weight:700;color:#dc2626;margin-bottom:0.4rem">📌 รีบมาพบแพทย์หาก</p>
-          <p style="color:#7f1d1d">น้ำหนักเพิ่ม <strong>≥ 2 กิโลกรัม</strong> ใน 2–3 วัน<br>ปรับยาขับปัสสาวะแล้วอาการไม่ดีขึ้น</p>
-        </div>
+      <div class="info-block warn">
+        <h4>🔴 อาการที่ต้องระวัง</h4>
+        <ul>
+          <li>ปัสสาวะบ่อย หิวน้ำบ่อย น้ำหนักลดโดยไม่ทราบสาเหตุ</li>
+          <li>ชาปลายมือปลายเท้า ตาพร่ามัว</li>
+          <li>แผลหายช้า ติดเชื้อง่าย</li>
+        </ul>
       </div>
-    </div>
-
-    <div style="background:#fef2f2;border:2px solid #fca5a5;border-radius:16px;padding:2rem;">
-      <h3 style="color:#dc2626;font-size:1.1rem;margin-bottom:1rem">🚨 สัญญาณอันตราย — ต้องรีบมาโรงพยาบาลทันที</h3>
-      <div style="display:grid;grid-template-columns:repeat(auto-fill,minmax(200px,1fr));gap:0.5rem;margin-bottom:1.25rem">
-        <div style="background:white;border-radius:8px;padding:0.6rem 0.9rem;font-size:0.9rem;color:#7f1d1d">😮 เหนื่อยมากขึ้นอย่างรวดเร็ว</div>
-        <div style="background:white;border-radius:8px;padding:0.6rem 0.9rem;font-size:0.9rem;color:#7f1d1d">🛏️ นอนราบไม่ได้ เหนื่อยตอนกลางคืน</div>
-        <div style="background:white;border-radius:8px;padding:0.6rem 0.9rem;font-size:0.9rem;color:#7f1d1d">🦵 เท้าหรือขาบวมมากขึ้น</div>
-        <div style="background:white;border-radius:8px;padding:0.6rem 0.9rem;font-size:0.9rem;color:#7f1d1d">⚖️ น้ำหนักเพิ่มเร็วผิดปกติ</div>
-        <div style="background:white;border-radius:8px;padding:0.6rem 0.9rem;font-size:0.9rem;color:#7f1d1d">💓 ใจสั่น หน้ามืด เป็นลม</div>
-        <div style="background:white;border-radius:8px;padding:0.6rem 0.9rem;font-size:0.9rem;color:#7f1d1d">💢 เจ็บแน่นหน้าอก</div>
+      <div class="info-block care">
+        <h4>🟢 การดูแลตัวเอง</h4>
+        <ul>
+          <li>หลีกเลี่ยงน้ำตาล ของหวาน ข้าวขาว และอาหารแป้งสูง</li>
+          <li>ออกกำลังกายเบาๆ เช่น เดินเร็ว 30 นาที อย่างน้อย 5 วัน/สัปดาห์</li>
+          <li>ตรวจวัดน้ำตาลที่บ้านสม่ำเสมอตามที่แพทย์แนะนำ</li>
+          <li>ดูแลเท้า ล้างทำความสะอาดทุกวัน ไม่เดินเท้าเปล่า</li>
+        </ul>
       </div>
-      <p style="font-size:1rem;font-weight:700;color:#dc2626">กรณีฉุกเฉิน โทร 1669 หรือมาที่ห้องฉุกเฉิน โรงพยาบาลสันทราย โทร 053-921199</p>
-    </div>
-  </div>
-</section>
-
-<!-- SYMPTOM CHECKER -->
-<section class="checker" id="checker">
-  <div class="container">
-    <p class="section-tag" style="color:var(--gold)">ตรวจสอบอาการ</p>
-    <h2 class="section-title">ไม่แน่ใจเรื่องอาการ?</h2>
-    <p class="section-desc">พิมพ์อาการที่รู้สึก เราจะแนะนำบทความและข้อมูลที่เกี่ยวข้อง (ไม่ใช่การวินิจฉัยโรค)</p>
-    <div class="checker-box">
-      <input type="text" placeholder="เช่น เจ็บหน้าอก, หายใจไม่ออก, ปัสสาวะบ่อย...">
-      <button>ค้นหาข้อมูล</button>
-    </div>
-    <div class="symptom-tags">
-      <span class="symptom-tag">เจ็บหน้าอก</span>
-      <span class="symptom-tag">หายใจไม่ออก</span>
-      <span class="symptom-tag">ปัสสาวะบ่อย</span>
-      <span class="symptom-tag">อ่อนเพลีย</span>
-      <span class="symptom-tag">คลื่นไส้</span>
-      <span class="symptom-tag">ปวดหัว</span>
-      <span class="symptom-tag">บวมที่ขา</span>
-    </div>
-  </div>
-</section>
-
-<!-- EMERGENCY -->
-<section class="emg-section">
-  <div class="container">
-    <div class="emergency">
-      <div class="emg-icon">🚨</div>
-      <div>
-        <h3>อาการฉุกเฉิน — โทรขอความช่วยเหลือทันที</h3>
-        <p>หากมีอาการ <strong>เจ็บหน้าอกรุนแรง, แขนขาอ่อนแรงข้างเดียว, พูดไม่ออก, หายใจไม่ได้, หมดสติ</strong> — นี่คือสัญญาณฉุกเฉินที่ต้องได้รับการรักษาทันที อย่ารอ อย่าขับรถเอง</p>
-        <span class="emg-num">🚑 1669 ฉุกเฉิน</span>
+      <div class="info-block med">
+        <h4>🟡 การใช้ยาเบาหวาน</h4>
+        <ul>
+          <li>กินยาสม่ำเสมอตามที่แพทย์สั่ง ไม่หยุดยาเอง</li>
+          <li>ถ้าลืมกินยา ให้กินทันทีที่นึกขึ้นมา แต่ถ้าใกล้มื้อถัดไปให้ข้ามมื้อนั้น</li>
+          <li>หากน้ำตาลต่ำ (เวียนหัว ใจสั่น เหงื่อออก) ให้กินน้ำหวานหรือลูกอมทันที</li>
+        </ul>
+      </div>
+      <div class="info-block when">
+        <h4>🩵 เมื่อไรควรมาพบแพทย์ด่วน</h4>
+        <ul>
+          <li>น้ำตาลสูงกว่า 300 มก./ดล. หรือต่ำกว่า 70 มก./ดล.</li>
+          <li>มีไข้ อาเจียน กินไม่ได้นาน</li>
+          <li>แผลที่เท้าบวม แดง หรือมีหนอง</li>
+        </ul>
       </div>
     </div>
   </div>
-</section>
 
-<!-- FAQ -->
-<section class="faq" id="faq">
-  <div class="container">
-    <p class="section-tag">คำถามที่พบบ่อย</p>
-    <h2 class="section-title">ข้อสงสัยที่มักถาม</h2>
-    <div class="faq-list">
-      <div class="faq-item">
-        <div class="faq-q" onclick="toggleFaq(this)">
-          เนื้อหาในเว็บนี้ตรวจสอบโดยใครคะ/ครับ?
-          <span class="arrow">▼</span>
-        </div>
-        <div class="faq-a">ทุกบทความตรวจสอบโดยทีมแพทย์อายุรกรรมและผู้เชี่ยวชาญด้านสุขภาพ และอัปเดตตามแนวทางเวชปฏิบัติล่าสุดของราชวิทยาลัยอายุรแพทย์แห่งประเทศไทย</div>
+  <!-- HYPERTENSION -->
+  <div class="content-panel" id="content-hypertension">
+    <h2>💊 ความดันโลหิตสูง</h2>
+    <p class="subtitle">ข้อมูลสำหรับผู้ป่วยและผู้ดูแล — จัดทำโดยแพทย์อายุรกรรม</p>
+    <div class="info-sections">
+      <div class="info-block what">
+        <h4>🔵 ความดันโลหิตสูงคืออะไร?</h4>
+        <ul>
+          <li>ความดันโลหิตปกติควรต่ำกว่า 130/80 มิลลิเมตรปรอท</li>
+          <li>ถ้าสูงกว่านี้เป็นประจำ เรียกว่าความดันโลหิตสูง</li>
+          <li>มักไม่มีอาการ จึงต้องวัดความดันสม่ำเสมอ</li>
+        </ul>
       </div>
-      <div class="faq-item">
-        <div class="faq-q" onclick="toggleFaq(this)">
-          ข้อมูลในเว็บนี้ใช้แทนการพบแพทย์ได้ไหม?
-          <span class="arrow">▼</span>
-        </div>
-        <div class="faq-a">ไม่ได้ครับ/ค่ะ เนื้อหาของเราให้ไว้เพื่อเสริมความเข้าใจเท่านั้น ไม่ใช่การวินิจฉัยหรือรักษาโรค หากมีอาการผิดปกติควรพบแพทย์เสมอ</div>
+      <div class="info-block warn">
+        <h4>🔴 อาการที่ต้องระวัง</h4>
+        <ul>
+          <li>ปวดศีรษะรุนแรง โดยเฉพาะตอนเช้า</li>
+          <li>ตาพร่า มึนหัว หน้ามืด</li>
+          <li>เลือดกำเดาไหลบ่อย หูอื้อ</li>
+        </ul>
       </div>
-      <div class="faq-item">
-        <div class="faq-q" onclick="toggleFaq(this)">
-          ใช้งานฟรีไหม?
-          <span class="arrow">▼</span>
-        </div>
-        <div class="faq-a">ใช้งานฟรีทั้งหมดครับ/ค่ะ ไม่มีค่าสมัครสมาชิก ไม่มีค่าบริการใดๆ เพราะเป้าหมายของเราคือให้ความรู้แก่ทุกคน</div>
+      <div class="info-block care">
+        <h4>🟢 การดูแลตัวเอง</h4>
+        <ul>
+          <li>ลดอาหารเค็ม ซอส น้ำปลา และอาหารแปรรูป</li>
+          <li>งดสูบบุหรี่และดื่มแอลกอฮอล์</li>
+          <li>ออกกำลังกายสม่ำเสมอ ลดน้ำหนักถ้าอ้วน</li>
+          <li>วัดความดันที่บ้านตอนเช้าหลังตื่นนอน บันทึกไว้ทุกวัน</li>
+        </ul>
       </div>
-      <div class="faq-item">
-        <div class="faq-q" onclick="toggleFaq(this)">
-          ถ้าอยากให้เพิ่มข้อมูลโรคอื่น ติดต่อได้ที่ไหน?
-          <span class="arrow">▼</span>
-        </div>
-        <div class="faq-a">สามารถส่งอีเมลมาได้ที่ info@medwise.th หรือกรอกแบบฟอร์มติดต่อในหน้า "เกี่ยวกับเรา" ทีมงานจะพิจารณาเพิ่มเนื้อหาตามความต้องการของผู้ใช้งาน</div>
+      <div class="info-block med">
+        <h4>🟡 การใช้ยาความดัน</h4>
+        <ul>
+          <li>ต้องกินยาทุกวัน แม้ความดันปกติ ห้ามหยุดยาเอง</li>
+          <li>กินยาเวลาเดิมทุกวัน เพื่อให้ยาออกฤทธิ์สม่ำเสมอ</li>
+          <li>ถ้าลืมกินให้กินทันที ยกเว้นใกล้เวลากินมื้อถัดไปมากแล้ว</li>
+        </ul>
+      </div>
+      <div class="info-block when">
+        <h4>🩵 เมื่อไรควรมาพบแพทย์ด่วน</h4>
+        <ul>
+          <li>ความดันสูงกว่า 180/110 มิลลิเมตรปรอท</li>
+          <li>ปวดหัวรุนแรงมาก ตาพร่า พูดไม่ชัด แขนขาอ่อนแรง</li>
+          <li>เจ็บแน่นหน้าอก หายใจหอบ</li>
+        </ul>
       </div>
     </div>
   </div>
-</section>
 
-<!-- FOOTER -->
+  <!-- HEART -->
+  <div class="content-panel" id="content-heart">
+    <h2>❤️ โรคหัวใจ</h2>
+    <p class="subtitle">ข้อมูลสำหรับผู้ป่วยและผู้ดูแล — จัดทำโดยแพทย์อายุรกรรม</p>
+    <div class="info-sections">
+      <div class="info-block what">
+        <h4>🔵 โรคหัวใจคืออะไร?</h4>
+        <ul>
+          <li>กลุ่มโรคที่เกิดกับหัวใจและหลอดเลือด เช่น กล้ามเนื้อหัวใจขาดเลือด หัวใจล้มเหลว</li>
+          <li>ปัจจัยเสี่ยง ได้แก่ เบาหวาน ความดัน ไขมันสูง สูบบุหรี่</li>
+        </ul>
+      </div>
+      <div class="info-block warn">
+        <h4>🔴 อาการที่ต้องระวัง</h4>
+        <ul>
+          <li>เจ็บแน่นหน้าอก อาจร้าวไปที่แขนซ้าย กราม หรือหลัง</li>
+          <li>หายใจไม่อิ่ม หอบเหนื่อยง่าย โดยเฉพาะตอนนอนราบ</li>
+          <li>ใจสั่น หัวใจเต้นผิดจังหวะ หน้ามืดเป็นลม</li>
+        </ul>
+      </div>
+      <div class="info-block care">
+        <h4>🟢 การดูแลตัวเอง</h4>
+        <ul>
+          <li>งดสูบบุหรี่ ลดอาหารมันและเค็ม</li>
+          <li>ออกกำลังกายเบาๆ ตามที่แพทย์อนุญาต ไม่หักโหม</li>
+          <li>ชั่งน้ำหนักทุกวัน ถ้าน้ำหนักขึ้นเร็วกว่า 2 กก./สัปดาห์ ให้รีบแจ้งแพทย์</li>
+          <li>งดดื่มน้ำมากเกินไปถ้าแพทย์จำกัดของเหลว</li>
+        </ul>
+      </div>
+      <div class="info-block med">
+        <h4>🟡 การใช้ยาหัวใจ</h4>
+        <ul>
+          <li>กินยาครบทุกตัวตามที่แพทย์สั่ง ไม่ควรหยุดยาเองแม้รู้สึกดีขึ้น</li>
+          <li>ยาแอสไพริน ควรกินหลังอาหาร ไม่ควรซื้อยาแก้ปวดเพิ่มเองโดยไม่ถามแพทย์</li>
+        </ul>
+      </div>
+      <div class="info-block when">
+        <h4>🩵 เมื่อไรควรมาพบแพทย์ด่วน / โทรสายด่วน</h4>
+        <ul>
+          <li>เจ็บหน้าอกรุนแรง ไม่หายเองใน 5 นาที</li>
+          <li>หายใจไม่ออก เหนื่อยมากผิดปกติ</li>
+          <li>หมดสติ หรือใจสั่นมากผิดปกติ → โทร 1669 ทันที</li>
+        </ul>
+      </div>
+    </div>
+  </div>
+
+  <!-- MEDICATION -->
+  <div class="content-panel" id="content-medication">
+    <h2>💉 การใช้ยาอย่างถูกต้อง</h2>
+    <p class="subtitle">ข้อมูลสำหรับผู้ป่วยและผู้ดูแล — จัดทำโดยเภสัชกรและแพทย์อายุรกรรม</p>
+    <div class="info-sections">
+      <div class="info-block what">
+        <h4>🔵 หลักการกินยา</h4>
+        <ul>
+          <li>กินยาตามเวลาที่แพทย์สั่ง ก่อนหรือหลังอาหารตามคำแนะนำบนฉลาก</li>
+          <li>อ่านฉลากยาทุกครั้งก่อนกิน สังเกตชื่อยา ขนาด และวิธีใช้</li>
+          <li>ไม่แบ่งยาให้คนอื่น และไม่กินยาของคนอื่น</li>
+        </ul>
+      </div>
+      <div class="info-block warn">
+        <h4>🔴 สิ่งที่ควรระวัง</h4>
+        <ul>
+          <li>แจ้งแพทย์และเภสัชกรทุกครั้งว่ากินยาอะไรอยู่บ้าง รวมถึงสมุนไพร</li>
+          <li>ยาบางชนิดห้ามกินกับ นม น้ำเกรปฟรุต หรืออาหารบางประเภท</li>
+          <li>ถ้าเกิดผื่น บวม หายใจไม่สะดวก หลังกินยา ให้หยุดยาและมาพบแพทย์ทันที</li>
+        </ul>
+      </div>
+      <div class="info-block care">
+        <h4>🟢 การเก็บรักษายา</h4>
+        <ul>
+          <li>เก็บยาในที่แห้ง เย็น ไม่โดนแสงแดดโดยตรง</li>
+          <li>ยาบางชนิดต้องเก็บในตู้เย็น ตรวจสอบฉลากทุกครั้ง</li>
+          <li>เก็บยาให้พ้นมือเด็กเสมอ</li>
+          <li>ตรวจวันหมดอายุก่อนกินทุกครั้ง ถ้าหมดอายุให้ทิ้ง</li>
+        </ul>
+      </div>
+      <div class="info-block med">
+        <h4>🟡 ถ้าลืมกินยา</h4>
+        <ul>
+          <li>ให้กินทันทีที่นึกขึ้นมา</li>
+          <li>ถ้าใกล้เวลากินมื้อถัดไปแล้ว ให้ข้ามมื้อที่ลืมไป</li>
+          <li>ห้ามกินยาสองเท่าในครั้งเดียวเพื่อชดเชย</li>
+        </ul>
+      </div>
+      <div class="info-block when">
+        <h4>🩵 เมื่อไรควรปรึกษาเภสัชกรหรือแพทย์</h4>
+        <ul>
+          <li>มีอาการผิดปกติหลังกินยา</li>
+          <li>ต้องการซื้อยาเพิ่มเติมนอกเหนือจากที่แพทย์สั่ง</li>
+          <li>ยาหมดก่อนนัด ขอรับยาสำรองได้ที่ OPD อายุรกรรม</li>
+        </ul>
+      </div>
+    </div>
+  </div>
+
+  <!-- KIDNEY -->
+  <div class="content-panel" id="content-kidney">
+    <h2>🫘 โรคไต</h2>
+    <p class="subtitle">ข้อมูลสำหรับผู้ป่วยและผู้ดูแล — จัดทำโดยแพทย์อายุรกรรม</p>
+    <div class="info-sections">
+      <div class="info-block what">
+        <h4>🔵 โรคไตคืออะไร?</h4>
+        <ul>
+          <li>ไตทำหน้าที่กรองของเสียออกจากเลือด ถ้าไตเสื่อมจะสะสมของเสียในร่างกาย</li>
+          <li>สาเหตุหลัก ได้แก่ เบาหวาน ความดันโลหิตสูง และการใช้ยาแก้ปวดเกินขนาด</li>
+        </ul>
+      </div>
+      <div class="info-block warn">
+        <h4>🔴 อาการที่ต้องระวัง</h4>
+        <ul>
+          <li>บวมที่ขา หน้า หรือรอบดวงตาตอนเช้า</li>
+          <li>ปัสสาวะน้อยลง หรือมีฟองมาก</li>
+          <li>อ่อนเพลีย คลื่นไส้ เบื่ออาหาร</li>
+        </ul>
+      </div>
+      <div class="info-block care">
+        <h4>🟢 การดูแลตัวเอง</h4>
+        <ul>
+          <li>ควบคุมเบาหวานและความดันให้อยู่ในเกณฑ์</li>
+          <li>หลีกเลี่ยงยาแก้ปวดกลุ่ม NSAIDs (เช่น ไอบูโพรเฟน ไดโคลฟีแนค) โดยไม่ผ่านแพทย์</li>
+          <li>ลดอาหารเค็มและอาหารที่มีโพแทสเซียมสูง (กล้วย ส้ม มะเขือเทศ) ถ้าแพทย์แนะนำ</li>
+        </ul>
+      </div>
+      <div class="info-block med">
+        <h4>🟡 การใช้ยา</h4>
+        <ul>
+          <li>แจ้งแพทย์ทุกครั้งว่าเป็นโรคไต เพราะยาหลายชนิดต้องปรับขนาด</li>
+          <li>ไม่ซื้อยาแก้ปวดหรือยาสมุนไพรกินเองโดยไม่ปรึกษาแพทย์</li>
+        </ul>
+      </div>
+      <div class="info-block when">
+        <h4>🩵 เมื่อไรควรมาพบแพทย์ด่วน</h4>
+        <ul>
+          <li>บวมมากขึ้นอย่างรวดเร็ว หายใจหอบ</li>
+          <li>ปัสสาวะน้อยมากหรือไม่ปัสสาวะเลย</li>
+          <li>ซึมมาก สับสน หรือชัก</li>
+        </ul>
+      </div>
+    </div>
+  </div>
+
+  <!-- CHOLESTEROL -->
+  <div class="content-panel" id="content-cholesterol">
+    <h2>🔬 ไขมันในเลือดสูง</h2>
+    <p class="subtitle">ข้อมูลสำหรับผู้ป่วยและผู้ดูแล — จัดทำโดยแพทย์อายุรกรรม</p>
+    <div class="info-sections">
+      <div class="info-block what">
+        <h4>🔵 ไขมันในเลือดสูงคืออะไร?</h4>
+        <ul>
+          <li>มีไขมัน LDL (ไขมันเลว) สูง หรือ HDL (ไขมันดี) ต่ำกว่าปกติ</li>
+          <li>มักไม่มีอาการ แต่เพิ่มความเสี่ยงโรคหัวใจและหลอดเลือดอุดตัน</li>
+        </ul>
+      </div>
+      <div class="info-block warn">
+        <h4>🔴 ความเสี่ยงที่ต้องรู้</h4>
+        <ul>
+          <li>ไขมันสะสมในหลอดเลือด ทำให้แข็งและตีบ</li>
+          <li>เสี่ยงต่อกล้ามเนื้อหัวใจขาดเลือด และโรคหลอดเลือดสมอง (อัมพฤกษ์/อัมพาต)</li>
+        </ul>
+      </div>
+      <div class="info-block care">
+        <h4>🟢 การดูแลตัวเอง</h4>
+        <ul>
+          <li>ลดอาหารมันสัตว์ ของทอด ของมัน กะทิ และไข่แดงมากเกินไป</li>
+          <li>เพิ่มผัก ผลไม้ ปลา และธัญพืชในมื้ออาหาร</li>
+          <li>ออกกำลังกายสม่ำเสมอ ช่วยเพิ่ม HDL (ไขมันดี)</li>
+          <li>ลดน้ำหนักถ้าเกินเกณฑ์</li>
+        </ul>
+      </div>
+      <div class="info-block med">
+        <h4>🟡 การใช้ยาลดไขมัน</h4>
+        <ul>
+          <li>กินยากลุ่ม statin ตอนกลางคืนหรือตามที่แพทย์สั่ง</li>
+          <li>ถ้ามีอาการปวดกล้ามเนื้อมากผิดปกติ ให้แจ้งแพทย์</li>
+          <li>ต้องตรวจเลือดเป็นระยะเพื่อติดตามผลการรักษา</li>
+        </ul>
+      </div>
+      <div class="info-block when">
+        <h4>🩵 เมื่อไรควรมาพบแพทย์</h4>
+        <ul>
+          <li>ปวดกล้ามเนื้อมาก ปัสสาวะสีน้ำชาหลังกินยา</li>
+          <li>ตามนัดตรวจเลือดทุกครั้ง</li>
+        </ul>
+      </div>
+    </div>
+  </div>
+
+  <!-- FAQ -->
+  <div class="faq-section">
+    <div class="section-title">คำถามที่พบบ่อย</div>
+    <div class="faq-item">
+      <button class="faq-q" onclick="toggleFaq(this)">
+        ลืมกินยาหลายวัน ต้องทำอย่างไร?
+        <span class="faq-arrow">▼</span>
+      </button>
+      <div class="faq-a">
+        ถ้าลืมกินยาหลายวัน อย่ากินยาชดเชยทีเดียวหลายเม็ด ให้กลับมากินตามขนาดปกติ และรีบปรึกษาแพทย์หรือพยาบาลในนัดถัดไป หรือโทรสอบถามได้ที่ OPD อายุรกรรม
+      </div>
+    </div>
+    <div class="faq-item">
+      <button class="faq-q" onclick="toggleFaq(this)">
+        ยาหมดก่อนวันนัด ต้องทำอย่างไร?
+        <span class="faq-arrow">▼</span>
+      </button>
+      <div class="faq-a">
+        ติดต่อที่ OPD อายุรกรรม โรงพยาบาลสันทราย เพื่อขอรับยาสำรองได้เลยโดยไม่ต้องรอนัด โปรดนำสมุดประวัติผู้ป่วยมาด้วย
+      </div>
+    </div>
+    <div class="faq-item">
+      <button class="faq-q" onclick="toggleFaq(this)">
+        กินยาสมุนไพรร่วมกับยาแผนปัจจุบันได้ไหม?
+        <span class="faq-arrow">▼</span>
+      </button>
+      <div class="faq-a">
+        สมุนไพรบางชนิดอาจมีผลต่อการทำงานของยาแผนปัจจุบัน ควรปรึกษาแพทย์หรือเภสัชกรก่อนทุกครั้ง อย่าซื้อกินเองโดยไม่แจ้งทีมแพทย์
+      </div>
+    </div>
+    <div class="faq-item">
+      <button class="faq-q" onclick="toggleFaq(this)">
+        รู้สึกดีขึ้นแล้ว หยุดยาได้ไหม?
+        <span class="faq-arrow">▼</span>
+      </button>
+      <div class="faq-a">
+        ไม่ควรหยุดยาเอง โดยเฉพาะยาความดัน ยาเบาหวาน และยาหัวใจ ยาเหล่านี้ต้องกินต่อเนื่องเพื่อป้องกันภาวะแทรกซ้อน แม้ร่างกายจะรู้สึกปกติแล้ว
+      </div>
+    </div>
+  </div>
+
+  <!-- CONTACT -->
+  <div class="contact-section">
+    <h3>📞 ติดต่อแผนกอายุรกรรม</h3>
+    <p>โรงพยาบาลสันทราย จังหวัดเชียงใหม่</p>
+    <div class="contact-grid">
+      <a class="contact-btn" href="tel:053921444">📞 053-921-444</a>
+      <a class="contact-btn outline" href="https://maps.google.com/?q=โรงพยาบาลสันทราย+เชียงใหม่" target="_blank">📍 ดูแผนที่</a>
+    </div>
+    <p style="margin-top: 16px; font-size: 13px; color: rgba(255,255,255,0.5);">เปิดบริการ OPD จันทร์–ศุกร์ 08.00–16.00 น.</p>
+  </div>
+
+</main>
+
 <footer>
-  <div class="footer-grid">
-    <div class="footer-brand">
-      <h3>MedWise</h3>
-      <p>แหล่งความรู้เรื่องโรคทางอายุรกรรม เข้าใจง่าย น่าเชื่อถือ ใช้ได้จริง</p>
-      <div class="disclaimer" style="margin-top:1rem">
-        ⚠️ เนื้อหาบนเว็บไซต์นี้ให้ไว้เพื่อให้ความรู้เท่านั้น ไม่ใช่คำแนะนำทางการแพทย์ ควรปรึกษาแพทย์ก่อนตัดสินใจใดๆ เกี่ยวกับสุขภาพ
-      </div>
-    </div>
-    <div class="footer-col">
-      <h4>หมวดโรค</h4>
-      <ul>
-        <li><a href="#">โรคหัวใจและหลอดเลือด</a></li>
-        <li><a href="#">โรคเบาหวาน</a></li>
-        <li><a href="#">โรคระบบหายใจ</a></li>
-        <li><a href="#">โรคไต</a></li>
-        <li><a href="#">ดูทั้งหมด</a></li>
-      </ul>
-    </div>
-    <div class="footer-col">
-      <h4>เนื้อหา</h4>
-      <ul>
-        <li><a href="#">บทความ</a></li>
-        <li><a href="#">วิดีโอความรู้</a></li>
-        <li><a href="#">ตรวจสอบอาการ</a></li>
-        <li><a href="#">คู่มือสำหรับผู้ดูแล</a></li>
-      </ul>
-    </div>
-    <div class="footer-col">
-      <h4>เกี่ยวกับ</h4>
-      <ul>
-        <li><a href="#">เกี่ยวกับเรา</a></li>
-        <li><a href="#">ทีมแพทย์</a></li>
-        <li><a href="#">นโยบายความเป็นส่วนตัว</a></li>
-        <li><a href="#">ติดต่อเรา</a></li>
-      </ul>
-    </div>
-  </div>
-  <div class="footer-bottom">
-    <span>© 2567 MedWise — สงวนลิขสิทธิ์</span>
-    <span>ออกแบบเพื่อสุขภาพที่ดีของทุกคน 💚</span>
-  </div>
+  <p>© 2567 แผนกอายุรกรรม โรงพยาบาลสันทราย · ข้อมูลนี้เป็นความรู้ทั่วไป ไม่ใช่การวินิจฉัยโรค</p>
 </footer>
 
 <script>
-  function toggleFaq(el) {
-    const item = el.parentElement;
-    item.classList.toggle('open');
-  }
-
-  // Smooth active state for nav
-  const sections = document.querySelectorAll('section[id]');
-  const navLinks = document.querySelectorAll('.nav-links a');
-  window.addEventListener('scroll', () => {
-    let current = '';
-    sections.forEach(s => {
-      if (window.scrollY >= s.offsetTop - 80) current = s.id;
-    });
-    navLinks.forEach(a => {
-      a.style.color = a.getAttribute('href') === '#' + current ? 'var(--teal)' : '';
-    });
-  });
+function showContent(id) {
+  document.querySelectorAll('.content-panel').forEach(p => p.classList.remove('active'));
+  document.querySelectorAll('.disease-card').forEach(c => c.classList.remove('active'));
+  document.getElementById('empty-state').style.display = 'none';
+  document.getElementById('content-' + id).classList.add('active');
+  event.currentTarget.classList.add('active');
+  document.getElementById('content-' + id).scrollIntoView({ behavior: 'smooth', block: 'start' });
+}
+function toggleFaq(btn) {
+  const item = btn.parentElement;
+  item.classList.toggle('open');
+}
 </script>
 </body>
 </html>
